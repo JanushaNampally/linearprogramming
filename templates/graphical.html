@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Graphical Method Solver</h1>
+<form method="post" id="graphical-form">
+    {% csrf_token %}
+    <textarea name="equations" placeholder="Enter your equations here"></textarea>
+    <button type="submit">Solve</button>
+</form>
+<div id="solution"></div>
+<script>
+    document.getElementById('graphical-form').onsubmit = async (e) => {
+        e.preventDefault();
+        const form = new FormData(e.target);
+        const response = await fetch('', { method: 'POST', body: form });
+
+        if(response.ok){
+            const data = await response.json();
+            document.getElementById('solution').innerText = datasolution;
+        } else {
+            document.getElementById('solution').innerText = "Error solving equations";
+        }
+    };
+</script>
+{% endblock %}

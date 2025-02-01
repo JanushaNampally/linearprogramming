@@ -1,0 +1,22 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=deivice-width, initial-scale=1.0">
+        <title>{% block title %}Linear Programming solver{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'solver/style.css' %}">
+    </head>
+    <body>
+        <nav>
+            <a href="{% url 'simplex' %}">Simplex</a>
+            <a href="{% url 'graphical' %}">Graphical</a>
+            <a href="{% url 'transportation' %}">Transportation</a>
+        </nav>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </body>
+    </html>
+    

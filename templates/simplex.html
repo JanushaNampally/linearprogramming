@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-
 {% block content %}
 <h1>Simplex Method Solver</h1>
 <form method="post" id="simplex-form">
     {% csrf_token %}
-    <textarea name="equations" placeholder="Enter your equations here"></textarea>
-    <button type="submit">Solve</button>
+    <label for="maximum">Maximize?</label>
+    <input type="checkbox" name="maximize" if="maximize">
+    <textarea name="equations" placeholder="Enter Your equations here, e.g. 'max Z = 9x1 + 10x2 + 7x3 1x1 + 3x2 + 2x3 <=12  4x1 + 1x2 + 3x3 <= 16  2x1 + 4x2 + 1x3 <= 14'"></textarea>
+    <button type="submit">Solver..</button>
 </form>
 <div id="solution"></div>
 
@@ -13,15 +14,15 @@
     document.getElementById('simplex-form').onsubmit = async (e) => {
         e.preventDefault();
         const form = new FormData(e.target);
-        const response =  await fetch('', { method: 'POST', body: form });
-        
+        const response = await fetch('', { method: 'POST', body: form});
+
         if (response.ok){
             const data = await response.json();
-            document.getElementById('solution').innerText = data.solution;
+            document.getElementById('solution').innerText = 'Optimal Solution: ' + data.solution + \nOptimal Value: ' + data.optimal_value;
         } else {
             document.getElementById('solution').innerText = "Error solving equations";
-            }
+        }
         };
-
-</script>
-{% endblock %}
+    </script>
+    {% endblock %}
+    

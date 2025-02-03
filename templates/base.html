@@ -3,20 +3,92 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=deivice-width, initial-scale=1.0">
-        <title>{% block title %}Linear Programming solver{% endblock %}</title>
-        <link rel="stylesheet" href="{% static 'solver/style.css' %}">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %} Linear Programming Solver{% endblock %}</title>
+        <link rel="stylesheet" href="{% static 'solver/style.css'  %}}">
+        <style>
+            body {
+                font-family: 'Poppins', sans-serif;
+                margin: 0;
+                padding: 0;
+                background: linear-gradient(to right, #f4f4f4, #e8eaf6);
+                color: #333;
+                display: flex;
+                flex-direction: column;
+                min-height: 100ch;
+            }
+
+            nav {
+                display: flex;
+                justify-content: center;
+                gap: 25px;
+                background: linear-gradient(to right, #1F1C2C, #928DAB);
+                padding: 15px;
+                box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+                border-radius: 0 0 12px 12px;
+                backdrop-filter: blur(8px);
+            }
+            nav h1 a {
+                color: #ffffff;
+                text-decoration: none;
+                font-size: 600;
+                transition: 0.3s;
+            }
+            nav h1 a:hover {
+                color: #00BFFf;
+                text-shadow: 0px 0px 10px rgba(0, 191, 255, 0.7);
+            }
+            .content {
+                max-width: 900pxx;
+                margin: 50px auto;
+                background: rgba(255, 255, 255, 0.95);
+                padding: 35px;
+                box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+                border-radius: 15px;
+                backdrop-filter: blur(10px);
+            }
+            footer {
+                text-allign: center;
+                padding: 15px;
+                color: #ffffff;
+                background: #333;
+                margin-top: auto;
+            }
+            button {
+                background: linear-gradient(135deg, #007BFF, #00C6FF);
+                color: white;
+                padding: 12px 18px;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: 0.3s ease-in-out;
+                font-size: 16px;
+                font-weight: 600;
+                box-shadow: 0px 4px 10px rgba(0, 123, 255, 0.3);
+
+            }
+            button:hover {
+                background: linear-gradient(135deg, #0056b3, #0096ff);
+                box-shadow: 0px 0px 15px rgba(0, 86, 179, 0.5);
+            }
+        </style>
     </head>
     <body>
         <nav>
-            <h1><a href="{% url 'simplex' %}">Simplex</a></h1>
-            <h1><a href="{% url 'graphical' %}">Graphical</a></h1>
-            <h1><a href="{% url 'transportation' %}">Transportation</a><h1>
+            <h1><a href="{% url 'home' %}">Home</a></h1>
+            <h1><a href-"{% url 'simplex' %}">Simplex</a></h1>
+            <h1><a href-"{% url 'graphical' %}">Graphical</a></h1>
+            <h1><a href-"{% url 'transportation' %}">Transportation</a></h1>
+            
+    
         </nav>
         <div class="content">
             {% block content %}
             {% endblock %}
         </div>
+
+        <footer>
+            &copy; Janusha. All rights reserved.
+        </footer>
     </body>
     </html>
-    
